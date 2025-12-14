@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everything Real Estate – Canada’s Real Estate Directory</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f3f4f6; margin: 0; padding: 0; color: #111827; }
+    header { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 50px 20px; text-align: center; }
+    header h1 { font-size: 36px; margin-bottom: 10px; }
+    header p { font-size: 16px; opacity: 0.9; }
+    .container { max-width: 1100px; margin: -40px auto 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 25px; }
+    select, button { padding: 12px; font-size: 14px; border-radius: 6px; border: 1px solid #d1d5db; }
+    button { background: #2563eb; color: white; border: none; font-weight: 600; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    .results { margin-top: 30px; }
+    .item { border: 1px solid #e5e7eb; border-radius: 10px; padding: 18px; margin-bottom: 15px; transition: box-shadow 0.2s ease; }
+    .item.featured { border: 2px solid #f59e0b; background: #fffbeb; }
+    .item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .item a { font-size: 18px; font-weight: 600; color: #2563eb; text-decoration: none; }
+    .meta { font-size: 14px; color: #4b5563; margin-top: 6px; }
+    footer { text-align: center; padding: 20px; font-size: 13px; color: #6b7280; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Everything Real Estate</h1>
+  <p>Canada’s Real Estate Directory</p>
+</header>
+
+<div class="container">
+  <div class="filters">
+    <select id="filterType">
+      <option value="">Service Type</option>
+      <option value="broker">Real Estate Broker</option>
+      <option value="rental">Rentals</option>
+      <option value="buy-sell">Buy & Sell</option>
+      <option value="prefab">Prefabricated Homes</option>
+      <option value="builder">Home Builder</option>
+      <option value="commercial">Commercial Real Estate</option>
+    </select>
+
+    <select id="filterProvince" onchange="updateCities()">
+      <option value="">Province / Territory</option>
+      <option value="ON">Ontario</option>
+      <option value="BC">British Columbia</option>
+      <option value="AB">Alberta</option>
+      <option value="QC">Quebec</option>
+      <option value="MB">Manitoba</option>
+      <option value="SK">Saskatchewan</option>
+      <option value="NS">Nova Scotia</option>
+      <option value="NB">New Brunswick</option>
+      <option value="NL">Newfoundland and Labrador</option>
+      <option value="PE">Prince Edward Island</option>
+      <option value="YT">Yukon</option>
+      <option value="NT">Northwest Territories</option>
+      <option value="NU">Nunavut</option>
+    </select>
+
+    <select id="filterCity">
+      <option value="">City</option>
+    </select>
+
+    <button onclick="applyFilters()">Search</button>
+  </div>
+
+  <div class="results" id="results"></div>
+
+  <div style="text-align:center; margin-top:30px;">
+    <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" style="font-weight:600; color:#2563eb;">Submit Your Business</a>
+  </div>
+</div>
+
+<footer>
+  © 2025 Everything Real Estate
+</footer>
+
+<script>
+  const citiesByProvince = {
+    ON: ['Toronto','Ottawa','Mississauga','Brampton','Hamilton'],
+    BC: ['Vancouver','Surrey','Burnaby','Richmond'],
+    AB: ['Calgary','Edmonton','Red Deer'],
+    QC: ['Montreal','Quebec City','Laval'],
+    MB: ['Winnipeg'],
+    SK: ['Regina','Saskatoon'],
+    NS: ['Halifax'],
+    NB: ['Moncton','Saint John'],
+    NL: ['St. John’s'],
+    PE: ['Charlottetown'],
+    YT: ['Whitehorse'],
+    NT: ['Yellowknife'],
+    NU: ['Iqaluit']
+  };
+
+  function updateCities() {
+    const province = document.getElementById('filterProvince').value;
+    const citySelect = document.getElementById('filterCity');
+    citySelect.innerHTML = '<option value="">City</option>';
+    if (!province || !citiesByProvince[province]) return;
+    citiesByProvince[province].forEach(city => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    });
+  }
+
+  const sheetURL = 'https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/gviz/tq?tqx=out:json';
+  let listings = [];
+
+  function parseGoogleSheetJSON(data) {
+    try {
+      const jsonText = data.substring(data.indexOf('{'), data.lastIndexOf('}') + 1);
+      return JSON.parse(jsonText);
+    } catch (err) {
+      console.error('Failed to parse Google Sheets JSON:', err);
+      return { table: { rows: [] } };
+    }
+  }
+
+  async function loadListings() {
+    try {
+      const res = await fetch(sheetURL);
+      const text = await res.text();
+      const jsonData = parseGoogleSheetJSON(text);
+      listings = (jsonData.table?.rows || []).map(r => {
+        const c = r.c || [];
+        return {
+          name: c[0]?.v || '',
+          service: c[1]?.v || '',
+          type: c[2]?.v || '',
+          province: c[3]?.v || '',
+          city: c[4]?.v || '',
+          phone: c[5]?.v || '',
+          email: c[6]?.v || '',
+          website: c[7]?.v || '',
+          tier: c[8]?.v || 'free'
+        };
+      });
+      applyFilters();
+    } catch (err) {
+      console.error('Error fetching or parsing Google Sheet:', err);
+    }
+  }
+
+  loadListings();
+
+  function applyFilters() {
+    const type = document.getElementById('filterType').value;
+    const province = document.getElementById('filterProvince').value;
+    const city = document.getElementById('filterCity').value;
+
+    const results = document.getElementById('results');
+    results.innerHTML = '';
+
+    const filtered = listings.filter(item =>
+      (!type || item.type === type) &&
+      (!province || item.province === province) &&
+      (!city || item.city === city)
+    );
+
+    filtered.sort((a,b) => (b.tier==='featured'?1:0)-(a.tier==='featured'?1:0));
+
+    if(filtered.length===0){
+      results.innerHTML = '<p>No results found.</p>';
+      return;
+    }
+
+    filtered.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'item' + (item.tier==='featured'?' featured':'');
+      div.innerHTML = `
+        <a href="${item.website}" target="_blank">${item.name}</a>
+        <div class="meta">${item.service} • ${item.city}, ${item.province}</div>
+        <div class="meta">Phone: ${item.phone} | Email: ${item.email}</div>
+      `;
+      results.appendChild(div);
+    });
+  }
+</script>
+
+</body>
+</html>
