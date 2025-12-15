@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Everything Real Estate – Canada’s Real Estate Directory</title>
+  <title>Everything Real Estate Canada | Brokers, Rentals, Builders & Commercial</title>
+  <meta name="description" content="Everything Real Estate is a Canada-wide directory of real estate brokers, rentals, home builders, prefabricated homes, and commercial real estate services.">
+  <meta name="keywords" content="Canada real estate directory, real estate brokers Canada, rentals Canada, home builders Canada, commercial real estate Canada">
+  <meta name="robots" content="index, follow">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,10 +23,12 @@
     button:hover { background: #1d4ed8; }
     .results { margin-top: 30px; }
     .item { border: 1px solid #e5e7eb; border-radius: 10px; padding: 18px; margin-bottom: 15px; transition: box-shadow 0.2s ease; }
-    .item.featured { border: 2px solid #f59e0b; background: #fffbeb; }
+    .item.featured { border: 2px solid #f59e0b; background: #fffbeb; position: relative; }
+.item.featured::before { content: 'FEATURED'; position:absolute; top:-10px; right:-10px; background:#f59e0b; color:#111827; font-size:12px; font-weight:700; padding:6px 10px; border-radius:999px; }
     .item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
     .item a { font-size: 18px; font-weight: 600; color: #2563eb; text-decoration: none; }
     .meta { font-size: 14px; color: #4b5563; margin-top: 6px; }
+    .submit-btn { display:inline-block; background:#2563eb; color:white; padding:14px 22px; border-radius:8px; font-weight:600; text-decoration:none; }
     footer { text-align: center; padding: 20px; font-size: 13px; color: #6b7280; }
   </style>
 </head>
@@ -31,7 +36,7 @@
 
 <header>
   <h1>Everything Real Estate</h1>
-  <p>Canada’s Real Estate Directory</p>
+  <p>Find trusted real estate professionals, builders, rentals & commercial services across Canada.</p>
 </header>
 
 <div class="container">
@@ -72,9 +77,15 @@
 
   <div class="results" id="results"></div>
 
-  <div style="text-align:center; margin-top:30px;">
-    <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" style="font-weight:600; color:#2563eb;">Submit Your Business</a>
-  </div>
+  <div style="text-align:center; margin-top:40px;">
+  <a href="submit.html" class="submit-btn">Submit Your Business</a>
+</div>
+
+    <button type="submit">Submit Listing</button>
+  </form>
+
+  <p id="formMessage" style="margin-top:10px;"></p>
+</div>
 </div>
 
 <footer>
@@ -183,6 +194,18 @@
       results.appendChild(div);
     });
   }
+document.getElementById('submitListingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const data = new FormData(this);
+  const tier = data.get('tier');
+
+  if(tier === 'featured'){
+    window.location.href = 'https://buy.stripe.com/YOUR_STRIPE_LINK';
+  } else {
+    document.getElementById('formMessage').textContent = 'Thank you! Your free listing will be reviewed.';
+    this.reset();
+  }
+});
 </script>
 
 </body>
