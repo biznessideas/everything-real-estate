@@ -8,43 +8,10 @@
   <meta name="description" content="Submit your real estate business to Everything Real Estate, Canada’s directory for brokers, rentals, builders and commercial services.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 
   <style>
-    body {
-      font-family: Inter, sans-serif;
-      background: #f3f4f6;
-      padding: 40px;
-    }
-    .box {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-    }
-    h1 {
-      margin-bottom: 10px;
-    }
-    input, select, button {
-      max-width: 600px;
-      width: 100%;
-      padding: 12px;
-      margin-top: 12px;
-      font-size: 14px;
-    }
-    button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-    .note {
-      font-size: 13px;
-      color: #555;
-      margin-top: 15px;
-    }
+   
   </style>
 </head>
 <body>
@@ -87,10 +54,10 @@
     <input placeholder="City" required>
     <input placeholder="Phone">
     <input placeholder="Email">
-    <input placeholder="Website">
+    <input placeholder="Website" required>
 
     <p><strong>Listing Type</strong></p>
-    <label><input type="radio" name="tier" checked> Free Listing</label><br>
+    <label><input type="radio" name="tier"> Free Listing</label><br>
     <label><input type="radio" name="tier"> Featured Listing ($19/month)</label>
 
     <p class="note">
@@ -99,15 +66,16 @@
         I confirm I own this business or have permission to submit it.
       </label>
     </p>
+     <p class="note">
+        By submitting, you agree to our
+      <a href="terms.html">Terms</a> and
+      <a href="privacy.html">Privacy Policy</a>.
+    </p>
 
     <button type="submit">Submit Listing</button>
   </form>
 
-  <p class="note">
-    By submitting, you agree to our
-    <a href="terms.html">Terms</a> and
-    <a href="privacy.html">Privacy Policy</a>.
-  </p>
+ 
 </div>
 
 </body>
