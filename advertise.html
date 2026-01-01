@@ -261,17 +261,16 @@
 
 <script>
 function handleSubmit(e) {
-  const plan = document.getElementById('planSelect').value;
+  const form = e.target;
 
-  document.getElementById('formMessage').textContent =
-    'Thank you! Your application has been received. Upon review, you will receive an email with confirmation and a payment link.';
+  // Delay to allow Google Form submission to complete
+  setTimeout(() => {
+    form.reset();
+    form.style.display = 'none';
 
-  // Redirect to Stripe for paid plans
-  // if (plan === 'Featured Listing' || plan === 'Sponsored Partner') {
-  //  setTimeout(() => {
-  //    window.open('https://buy.stripe.com/YOUR_STRIPE_LINK', '_blank');
-  // }, 800);
-  // }
+    document.getElementById('formMessage').textContent =
+      'Thank you! Your application has been received and is under review. If approved, you will receive an email with next steps.';
+  }, 500);
 }
 </script>
 
