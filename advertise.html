@@ -264,14 +264,14 @@ function handleSubmit(e) {
   const plan = document.getElementById('planSelect').value;
 
   document.getElementById('formMessage').textContent =
-    'Thank you! Your application has been received.';
+    'Thank you! Your application has been received. Upon review, you will receive an email with confirmation and a payment link.';
 
   // Redirect to Stripe for paid plans
-  if (plan === 'Featured Listing' || plan === 'Sponsored Partner') {
-    setTimeout(() => {
-      window.open('https://buy.stripe.com/YOUR_STRIPE_LINK', '_blank');
-    }, 800);
-  }
+  // if (plan === 'Featured Listing' || plan === 'Sponsored Partner') {
+  //  setTimeout(() => {
+  //    window.open('https://buy.stripe.com/YOUR_STRIPE_LINK', '_blank');
+  // }, 800);
+  // }
 }
 </script>
 
