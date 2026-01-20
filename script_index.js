@@ -18,22 +18,27 @@ const citiesByProvince = {
 };
 
 // ----------------------------------
-// Hide all listings on page load
+// Google Sheets API
 // ----------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.item').forEach(item => {
-    item.style.display = 'none';
+const API_URL =
+  'https://script.google.com/macros/s/AKfycbwuhO_zvZCYTY8sI4cNs26rszuNsy8C2VgqGc1a4D_z4nkdHdWXQV_YMSCps6pLo2jy/exec';
+
+let allListings = [];
+
+// ------------------------------
+// Fetch approved listings
+// ------------------------------
+fetch(API_URL)
+  .then(res => res.json())
+  .then(data => {
+    allListings = data;
+  })
+  .catch(err => {
+    console.error('API error:', err);
   });
 
-  // Force all links to open in a new tab (initial items)
-  document.querySelectorAll('.item a').forEach(link => {
-    link.setAttribute('target', '_blank');
-    link.setAttribute('rel', 'noopener noreferrer');
-  });
-});
-
 // ----------------------------------
-// Update city dropdown when province changes
+// Update cities
 // ----------------------------------
 function updateCities() {
   const province = document.getElementById('filterProvince').value;
@@ -51,64 +56,68 @@ function updateCities() {
   });
 }
 
-// ----------------------------------
-// Apply filters (Search button click)
-// Province REQUIRED
-// Supports multi-type, multi-city, multi-province
-// ----------------------------------
+// ------------------------------
+// Apply Filters (Search button)
+// ------------------------------
 function applyFilters() {
   const type = document.getElementById('filterType').value;
   const province = document.getElementById('filterProvince').value;
   const city = document.getElementById('filterCity').value;
 
-  // Enforce province selection
   if (!province) {
-    alert('Please select a province or territory to search.');
+    alert('Please select a province or territory.');
     return;
   }
 
-  const items = document.querySelectorAll('.item');
-  const results = document.getElementById('results');
-  let visibleCount = 0;
-
-  items.forEach(item => {
-    const itemTypes = item.dataset.type
+  const filtered = allListings.filter(item => {
+    const types = item.service_type
+      .toLowerCase()
       .split(',')
       .map(t => t.trim());
 
-    const itemCities = item.dataset.city
-      .split(',')
-      .map(c => c.trim());
-
-    const itemProvinces = item.dataset.province
-      .split(',')
-      .map(p => p.trim());
-
-    const matches =
-      (!type || itemTypes.includes(type)) &&
-      itemProvinces.includes(province) &&
-      (!city || itemCities.includes(city));
-
-    item.style.display = matches ? 'block' : 'none';
-
-    if (matches) {
-      visibleCount++;
-      // Ensure link opens in new tab for filtered items
-      item.querySelectorAll('a').forEach(link => {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-      });
-    }
+    return (
+      (!type || types.includes(type)) &&
+      item.province === province &&
+      (!city || item.city === city)
+    );
   });
 
-  // Show / hide "No results" message
-  let noResults = document.getElementById('noResults');
-  if (!noResults) {
-    noResults = document.createElement('p');
-    noResults.id = 'noResults';
-    noResults.textContent = 'No results found.';
-    results.appendChild(noResults);
+  renderResults(filtered);
+}
+
+
+// ------------------------------
+// Render cards
+// ------------------------------
+function renderResults(data) {
+  const container = document.getElementById('results');
+  const noResults = document.getElementById('noResults');
+
+  container.innerHTML = '';
+
+  if (data.length === 0) {
+    noResults.style.display = 'block';
+    return;
   }
 
-  noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-}
+  noResults.style.display = 'none';
+  // Featured first
+    data.sort((a, b) =>
+      (b.tier === 'paid') - (a.tier === 'paid')
+    );
+
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'listing-card' + (item.tier === 'paid' ? ' paid' : '');
+
+      card.innerHTML = `
+        <a href="${item.website}" target="_blank" rel="noopener noreferrer">
+        <h3 class="name">${item.business_name}</h3>
+        <p class="meta">${item.city}, ${item.province}</p>
+        <p class="link">  Visit Website</p>
+        </a>
+      `;
+
+      container.appendChild(card);
+    });
+  }
