@@ -2,15 +2,15 @@
 // City list by province
 // ----------------------------------
 const citiesByProvince = {
-  ON: ['Toronto','Ottawa','Mississauga','Brampton','Hamilton'],
-  BC: ['Vancouver','Surrey','Burnaby','Richmond'],
-  AB: ['Calgary','Edmonton','Red Deer'],
-  QC: ['Montreal','Quebec City','Laval'],
+  ON: ['GTA','Toronto','Ottawa','Mississauga','Brampton','Hamilton', 'Vaughan'],
+  BC: ['Vancouver','Surrey','Burnaby','Richmond', 'Victoria', 'Kelowna', 'Kamloops'],
+  AB: ['Calgary','Edmonton','Red Deer', 'Lethbridge', 'Medicine Hat'],
+  QC: ['Montreal','Quebec City','Laval', 'Gatineau'],
   MB: ['Winnipeg'],
   SK: ['Regina','Saskatoon'],
   NS: ['Halifax'],
-  NB: ['Moncton','Saint John'],
-  NL: ['St. John’s'],
+  NB: ['Moncton','Saint John', 'Fredericton'],
+  NL: ['St. John’s', 'Mount Pearl'],
   PE: ['Charlottetown'],
   YT: ['Whitehorse'],
   NT: ['Yellowknife'],
