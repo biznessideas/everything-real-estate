@@ -7,143 +7,8 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="style_advertise.css" rel="stylesheet" />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #f9fafb, #eef2f7);
-      color: #1f2937;
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px 30px;
-    }
-
-    header h1 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: #4b5563;
-    }
-
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 30px 20px 100px;
-    }
-
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .plan {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-      text-align: center;
-    }
-
-    .plan h3 {
-      margin-top: 0;
-      font-size: 1.3rem;
-    }
-
-    .price {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 12px 0;
-      color: #2563eb;
-    }
-
-    .plan ul {
-      list-style: none;
-      padding: 0;
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .plan ul li {
-      margin-bottom: 8px;
-    }
-
-    .form-section {
-      background: #ffffff;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .form-section h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .form-section p {
-      color: #6b7280;
-      margin-bottom: 25px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    input, select, textarea {
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #d1d5db;
-      font-size: 1rem;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
-      background: #2563eb;
-      color: #ffffff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    #formMessage {
-      margin-top: 15px;
-      font-weight: 600;
-      color: #16a34a;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #f1f5f9;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
 
 <body>
@@ -168,7 +33,7 @@
 
     <div class="plan">
       <h3>Featured Listing</h3>
-      <div class="price">$25 / month</div>
+      <div class="price">$5 / month</div>
       <ul>
         <li>Top of results</li>
         <li>Highlighted card</li>
@@ -187,9 +52,8 @@
     </div-->
   </section>
 
-  <section class="form-section">
-    <h2>Apply to Advertise</h2>
-    <p>All fields marked * are required.</p>
+  <section class="form-section" id="formSection">
+
 
   <!-- prefilled link for a form  https://docs.google.com/forms/d/e/1FAIpQLSdFf0H8SRxryPKomcHwuJsRQxw0Dwd5Aa197uvqpClUuL2yyA/viewform?usp=pp_url
   &entry.1416166972=business+name
@@ -207,7 +71,11 @@
       method="POST"
       target="hidden_iframe"
       onsubmit="handleSubmit(event)"
+      id="advertiseForm"
     >
+
+    <h2>Apply to Advertise</h2>
+    <p>All fields marked * are required.</p>
 
       <!-- Replace entry IDs -->
       <input type="text" name="entry.1416166972" placeholder="Business Name *" required>
@@ -260,19 +128,33 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
-  const form = e.target;
+function handleSubmit() {
+  const form = document.getElementById('advertiseForm');
+  const formSection = document.getElementById('formSection');
+  const message = document.getElementById('formMessage');
 
-  // Delay to allow Google Form submission to complete
+  // Clear form fields after submission
   setTimeout(() => {
     form.reset();
+
+    // Hide the form smoothly
     form.style.display = 'none';
 
-    document.getElementById('formMessage').textContent =
-      'Thank you! Your application has been received and is under review. If approved, you will receive an email with next steps.';
+    // Show thank-you message
+    message.innerHTML = `
+      <div class="thank-you-box">
+        Thank you!<br><br>
+        Your application has been received and is currently under review.
+        <br><br>
+        If approved, you will receive an email with confirmation and payment instructions.
+      </div>
+    `;
+
+    message.style.display = 'block';
   }, 500);
 }
 </script>
+
 
 </body>
 </html>
