@@ -149,11 +149,10 @@ function renderResults(data) {
   data.forEach(item => {
     const card = document.createElement('div');
     card.className =
-      'listing-card' + (item.tier === 'paid' ? ' featured' : '');
+      'listing-card' + (item.tier === 'paid' ? ' paid' : '');
 
     card.innerHTML = `
       <a href="${item.website}" target="_blank" rel="noopener noreferrer">
-        ${item.tier === 'paid' ? '<span class="featured-badge">Featured</span>' : ''}
         <h3 class="name">${item.business_name}</h3>
         <p class="meta">${item.city}, ${item.province}</p>
       </a>
