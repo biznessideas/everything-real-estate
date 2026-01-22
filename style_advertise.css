@@ -17,7 +17,7 @@ html, body {
     display: flex;
     flex-direction: column;
   }
-  /* Wraps all content except footer */
+  /* Wraps all content except foooter */
   .page-wrapper {
     flex: 1 0 auto;
   }
