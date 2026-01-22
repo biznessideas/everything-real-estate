@@ -26,13 +26,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Everything Real Estate Canada | Brokers, Rentals, Builders & Commercial</title>
    <meta name="description" content="Everything Real Estate is a Canada-wide directory of real estate brokers, rentals, home builders, prefabricated homes, and commercial real estate services.">
-   <meta name="keywords" content="Canada real estate directory, real estate brokers Canada, rentals Canada, home builders Canada, commercial real estate Canada">
+   <meta name="keywords" content="Canada real estate directory, real estate brokers Canada, rentals Canada, home builders Canada, commercial real estate Canada, real estate brokers Calgary, buy a house calgary">
    <meta name="robots" content="index, follow">
    <meta name="google-adsense-account" content="ca-pub-2101688083729710">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="style_index.css" rel="stylesheet" />
+  <link rel="canonical" href="https://everything-real-estate.ca">
 
 
 </head>
@@ -56,21 +57,8 @@
           <!--option value="prefab">Prefabricated Homes</option-->
     </select>
 
-    <select id="filterProvince" onchange="updateCities()">
+    <select id="filterProvince">
       <option value="">Province / Territory</option>
-      <option value="ON">Ontario</option>
-      <option value="BC">British Columbia</option>
-      <option value="AB">Alberta</option>
-      <option value="QC">Quebec</option>
-      <option value="MB">Manitoba</option>
-      <option value="SK">Saskatchewan</option>
-      <option value="NS">Nova Scotia</option>
-      <option value="NB">New Brunswick</option>
-      <option value="NL">Newfoundland and Labrador</option>
-      <option value="PE">Prince Edward Island</option>
-      <option value="YT">Yukon</option>
-      <option value="NT">Northwest Territories</option>
-      <option value="NU">Nunavut</option>
     </select>
 
     <select id="filterCity">
@@ -108,6 +96,23 @@
 </footer>
 
 <script src="script_index.js"></script>
+
+<script>
+(function () {
+  const canonicalHref =
+    window.location.origin + window.location.pathname.replace(/index\.html$/, '');
+
+  let link = document.querySelector('link[rel="canonical"]');
+
+  if (!link) {
+    link = document.createElement('link');
+    link.rel = 'canonical';
+    document.head.appendChild(link);
+  }
+
+  link.href = canonicalHref;
+})();
+</script>
 
 </body>
 </html>
