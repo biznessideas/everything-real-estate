@@ -51,7 +51,16 @@
 <div class="page-wrapper">
 
 <header>
-  <h1>Everything Real Estate</h1>
+  <a href="/" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:#0f1f3d; padding:10px 16px; border-radius:8px; margin-bottom:1rem;">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 14L16 4L28 14V28H20V20H12V28H4V14Z" fill="#ffffff"/>
+      <path d="M12 20H20V28H12V20Z" fill="#c9a84c"/>
+    </svg>
+    <div style="line-height:1.15;">
+      <div style="font-family:Inter,sans-serif; font-size:13px; font-weight:600; color:#ffffff; letter-spacing:0.04em;">Everything Real Estate</div>
+      <div style="font-family:Inter,sans-serif; font-size:10px; font-weight:400; color:rgba(255,255,255,0.5); letter-spacing:0.18em; text-transform:uppercase;">Canada</div>
+    </div>
+  </a>
   <p>Find trusted real estate professionals, builders, rentals & commercial services across Canada.</p>
 </header>
 
@@ -87,18 +96,36 @@
     No results found.
   </p>
 
-  <!-- Browse by City (SEO pages) -->
-  <div style="text-align:center; margin-top:50px; padding: 30px 20px; border-radius:8px;">
-    <h2 style="font-family:Inter,sans-serif; font-size:1.1rem; font-weight:600; color:#1a1a2e; margin-bottom:6px;">Browse by City</h2>
-    <p style="font-family:Inter,sans-serif; font-size:0.9rem; color:#666; margin-bottom:20px;">Find real estate professionals in Canada's top markets</p>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px;">
-      <a href="/real-estate-brokers-toronto.html" style="background:#fff; border:1px solid #ddd; border-radius:6px; padding:10px 20px; text-decoration:none; color:#1a1a2e; font-family:Inter,sans-serif; font-size:0.9rem; font-weight:500;">🏙️ Toronto, ON</a>
-      <a href="/real-estate-brokers-vancouver.html" style="background:#fff; border:1px solid #ddd; border-radius:6px; padding:10px 20px; text-decoration:none; color:#1a1a2e; font-family:Inter,sans-serif; font-size:0.9rem; font-weight:500;">🌲 Vancouver, BC</a>
-      <a href="/real-estate-brokers-calgary.html" style="background:#fff; border:1px solid #ddd; border-radius:6px; padding:10px 20px; text-decoration:none; color:#1a1a2e; font-family:Inter,sans-serif; font-size:0.9rem; font-weight:500;">🤠 Calgary, AB</a>
+ <!-- Browse by City v2.0 -->
+  <div style="background:#fff; border:1px solid #e8e4dc; border-radius:12px; padding:2rem 1.5rem; text-align:center; margin-top:50px;">
+    <div style="font-family:Inter,sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin-bottom:6px;">Browse by city</div>
+    <div style="font-family:Inter,sans-serif; font-size:16px; font-weight:600; color:#0f1f3d; margin-bottom:4px;">Canada's Top Real Estate Markets</div>
+    <div style="font-family:Inter,sans-serif; font-size:13px; color:#777; margin-bottom:1.2rem;">Find brokers, builders, and services in your city</div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:1.2rem;">
+      <div style="height:1px; width:40px; background:#ddd;"></div>
+      <span style="font-size:12px; color:#C0392B;">✦</span>
+      <div style="height:1px; width:40px; background:#ddd;"></div>
     </div>
-  </div>
-  <div style="text-align:center; margin-top:40px;">
-    <a href="advertise.html" class="submit-btn">Submit Your Business</a>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+      <a href="/real-estate-brokers-toronto.html" style="display:inline-flex; align-items:center; gap:8px; background:#f7f5f0; border:1px solid #ddd; border-radius:999px; padding:8px 18px; text-decoration:none;">
+        <span style="width:7px; height:7px; border-radius:50%; background:#c9a84c; display:inline-block; flex-shrink:0;"></span>
+        <span style="font-family:Inter,sans-serif; font-size:13px; font-weight:500; color:#0f1f3d;">Toronto</span>
+        <span style="font-family:Inter,sans-serif; font-size:11px; color:#999;">ON</span>
+      </a>
+      <a href="/real-estate-brokers-vancouver.html" style="display:inline-flex; align-items:center; gap:8px; background:#f7f5f0; border:1px solid #ddd; border-radius:999px; padding:8px 18px; text-decoration:none;">
+        <span style="width:7px; height:7px; border-radius:50%; background:#c9a84c; display:inline-block; flex-shrink:0;"></span>
+        <span style="font-family:Inter,sans-serif; font-size:13px; font-weight:500; color:#0f1f3d;">Vancouver</span>
+        <span style="font-family:Inter,sans-serif; font-size:11px; color:#999;">BC</span>
+      </a>
+      <a href="/real-estate-brokers-calgary.html" style="display:inline-flex; align-items:center; gap:8px; background:#f7f5f0; border:1px solid #ddd; border-radius:999px; padding:8px 18px; text-decoration:none;">
+        <span style="width:7px; height:7px; border-radius:50%; background:#c9a84c; display:inline-block; flex-shrink:0;"></span>
+        <span style="font-family:Inter,sans-serif; font-size:13px; font-weight:500; color:#0f1f3d;">Calgary</span>
+        <span style="font-family:Inter,sans-serif; font-size:11px; color:#999;">AB</span>
+      </a>
+    </div>
+    <div style="margin-top:1.2rem; font-family:Inter,sans-serif; font-size:12px; color:#aaa;">
+      More cities coming soon — <a href="/advertise.html" style="color:#777; text-decoration:underline;">list your business today</a>
+    </div>
   </div>
 
   <p id="formMessage" style="margin-top:10px;"></p>
