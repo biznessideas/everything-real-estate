@@ -169,8 +169,8 @@ function applyUrlFilters() {
   const params = new URLSearchParams(window.location.search);
 
   const province = params.get('province');
-  const city = params.get('city');
-  const type = params.get('type');
+  const city     = params.get('city');
+  const service  = params.get('service');
 
   if (province) {
     document.getElementById('filterProvince').value = province;
@@ -181,8 +181,8 @@ function applyUrlFilters() {
     document.getElementById('filterCity').value = city;
   }
 
-  if (type) {
-    document.getElementById('filterType').value = type;
+  if (service) {
+    document.getElementById('filterType').value = service;
   }
 
   if (province) {
