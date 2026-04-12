@@ -46,7 +46,7 @@ html, body {
 
   .pricing {
   display: flex;
-  gap: 24px;
+  gap: 18px;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
@@ -57,7 +57,7 @@ html, body {
   background: #ffffff;
   border-radius: 18px;
   padding: 30px 26px;
-  width: 280px;
+  width: 230px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
   text-align: left;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
