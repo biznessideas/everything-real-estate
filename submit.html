@@ -2,79 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submit Your Business – Everything Real Estate</title>
+  <meta name="description" content="Submit your real estate business to Everything Real Estate, Canada's directory for brokers, rentals, builders and commercial services.">
+  <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Submit your real estate business to Everything Real Estate, Canada’s directory for brokers, rentals, builders and commercial services.">
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" >
-  <link rel="stylesheet" href="styles_submit.css">
-
+   <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ED4K6HB00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8ED4K6HB00');
+  </script>
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="box">
-  <h1>Submit Your Business</h1>
-  <p>Get listed on Canada’s real estate directory.</p>
-
-  <form id="submitForm">
-    <input placeholder="Business Name" required>
-    <input placeholder="Service Description" required>
-
-    <select required>
-      <option value="">Service Type</option>
-      <option value="broker">Real Estate Broker</option>
-      <option value="rental">Rentals</option>
-      <option value="buy-sell">Buy & Sell</option>
-      <option value="prefab">Prefabricated Homes</option>
-      <option value="builder">Home Builder</option>
-      <option value="commercial">Commercial Real Estate</option>
-    </select>
-
-    <select required>
-      <option value="">Province</option>
-      <option value="ON">Ontario</option>
-      <option value="BC">British Columbia</option>
-      <option value="AB">Alberta</option>
-      <option value="QC">Quebec</option>
-      <option value="MB">Manitoba</option>
-      <option value="SK">Saskatchewan</option>
-      <option value="NS">Nova Scotia</option>
-      <option value="NB">New Brunswick</option>
-      <option value="NL">Newfoundland and Labrador</option>
-      <option value="PE">Prince Edward Island</option>
-      <option value="YT">Yukon</option>
-      <option value="NT">Northwest Territories</option>
-      <option value="NU">Nunavut</option>
-    </select>
-    
-    <input placeholder="City" required>
-    <input placeholder="Phone">
-    <input placeholder="Email">
-    <input placeholder="Website" required>
-
-    <div>
-    <h3>Listing Type</h3>
-      <label><input type="radio" name="tier"> Free Listing</label><br>
-      <label><input type="radio" name="tier"> Featured Listing ($19/month)</label>
+<div class="page-wrapper">
+ 
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 14L16 4L28 14V28H20V20H12V28H4V14Z" fill="#ffffff"/>
+      <path d="M12 20H20V28H12V20Z" fill="#c9a84c"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Everything Real Estate</span>
+      <span class="nav-logo-sub">Canada</span>
+      
     </div>
-    <p class="note">
-      <label>
+    </a>
+  <div class="nav-links">
+    <a href="/">Directory</a>
+    <a href="/advertise.html" class="nav-cta">List Your Business</a>
+  </div>
+</nav>
+  <div class="page-header">
+  <h1>Submit Your Business</h1>
+  <p>Get listed on Canada's real estate directory.</p>
+</div>
+ 
+<div class="container-narrow">
+  <div class="form-card" id="formSection">
+    <h2>Business Details</h2>
+    <p>All fields marked * are required. Your listing will be reviewed before going live.</p>
+ 
+    <form
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdFf0H8SRxryPKomcHwuJsRQxw0Dwd5Aa197uvqpClUuL2yyA/formResponse"
+      method="POST"
+      target="hidden_iframe"
+      onsubmit="handleSubmit()"
+      id="submitForm"
+    >
+      <input type="text" name="entry.1416166972" placeholder="Business Name *" required>
+      <input type="text" name="entry.1928868966" placeholder="Contact Name *" required>
+      <input type="email" name="entry.1591205745" placeholder="Email Address *" required>
+      <input type="tel"  name="entry.314475002"  placeholder="Phone Number">
+      <input type="url"  name="entry.906304955"  placeholder="Website URL *" required>
+ 
+      <select name="entry.1417227235" required>
+        <option value="">Province / Territory *</option>
+        <option value="ON">Ontario</option>
+        <option value="BC">British Columbia</option>
+        <option value="AB">Alberta</option>
+        <option value="QC">Quebec</option>
+        <option value="MB">Manitoba</option>
+        <option value="SK">Saskatchewan</option>
+        <option value="NS">Nova Scotia</option>
+        <option value="NB">New Brunswick</option>
+        <option value="NL">Newfoundland and Labrador</option>
+        <option value="PE">Prince Edward Island</option>
+        <option value="YT">Yukon</option>
+        <option value="NT">Northwest Territories</option>
+        <option value="NU">Nunavut</option>
+      </select>
+ 
+      <input type="text" name="entry.653803682" placeholder="City *" required>
+ 
+      <select id="serviceType" required>
+        <option value="">Service Type *</option>
+        <option value="Real Estate Broker">Real Estate Broker</option>
+        <option value="Rentals">Rentals</option>
+        <option value="Buy &amp; Sell">Buy &amp; Sell</option>
+        <option value="Prefabricated Homes">Prefabricated Homes</option>
+        <option value="Home Builder">Home Builder</option>
+        <option value="Commercial Real Estate">Commercial Real Estate</option>
+      </select>
+ 
+      <!-- Listing tier -->
+      <div>
+        <p style="font-size:0.85rem;font-weight:600;color:#374151;margin:0 0 8px;">Listing Plan *</p>
+        <div class="radio-group">
+          <label><input type="radio" name="entry.600779950" value="Free" required> Free – $0</label>
+          <label><input type="radio" name="entry.600779950" value="Standard"> Standard – $19&ndash;$29/month</label>
+          <label><input type="radio" name="entry.600779950" value="Featured"> Featured – $49&ndash;$79/month</label>
+          <label><input type="radio" name="entry.600779950" value="Premium"> Premium – $99&ndash;$149/month</label>
+        </div>
+      </div>
+ 
+      <!-- Hidden notes field — populated by JS on submit -->
+      <input type="hidden" name="entry.1989129436" id="notesField">
+ 
+      <p class="form-note">
         <input type="checkbox" required>
         I confirm I own this business or have permission to submit it.
-      </label>
     </p>
-     <p class="note">
-        By submitting, you agree to our
-      <a href="terms.html">Terms</a> and
-      <a href="privacy.html">Privacy Policy</a>.
-    </p>
-
-    <button type="submit">Submit Listing</button>
-  </form>
-
+      <p class="form-note" style="margin-top:4px;">
+        By submitting you agree to our <a href="terms.html" style="color:#2563eb;">Terms</a> and <a href="privacy.html" style="color:#2563eb;">Privacy Policy</a>.
+      </p>
  
-</div>
+      <button type="submit">Submit Listing</button>
+    </form>
+ 
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+    <div id="formMessage"></div>
+  </div>
 
+ </div><!-- page-wrapper -->
+ 
+<footer class="site-footer">
+  <p>&copy; 2026 Everything Real Estate Canada &nbsp;|&nbsp; <a href="/">Directory</a> &nbsp;|&nbsp; <a href="terms.html">Terms</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+ 
+<script>
+function handleSubmit() {
+  // Populate hidden notes with service type before submit
+  const serviceType = document.getElementById('serviceType').value;
+  document.getElementById('notesField').value = serviceType ? 'Service Type: ' + serviceType : '';
+ 
+  const form    = document.getElementById('submitForm');
+  const message = document.getElementById('formMessage');
+ 
+  setTimeout(() => {
+    form.style.display = 'none';
+    message.style.display = 'block';
+    message.innerHTML = `
+      <div class="thank-you-box">
+        Thank you!<br><br>
+        Your listing has been received and is under review.
+        We'll be in touch once it's approved.
+      </div>
+    `;
+  }, 500);
+}
+</script>
+ 
 </body>
 </html>
