@@ -32,8 +32,8 @@
 
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="style_advertise.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" />
 
 </head>
 
@@ -41,16 +41,33 @@
 
 <div class="page-wrapper">
 
-<header>
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 14L16 4L28 14V28H20V20H12V28H4V14Z" fill="#ffffff"/>
+      <path d="M12 20H20V28H12V20Z" fill="#c9a84c"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Everything Real Estate</span>
+      <span class="nav-logo-sub">Canada</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="/">Directory</a>
+    <a href="/advertise.html" class="nav-cta">List Your Business</a>
+  </div>
+</nav>
+<div class="page-header">
   <h1>Advertise With Us</h1>
   <p>Reach buyers, renters, and investors actively searching for real estate services across Canada.</p>
-</header>
+</div>
 
-<div class="container">
 
-  <section class=”pricing”>
- 
-    <div class=”plan”>
+
+
+
+  
+ <div class=”plan”>
       <h3>Free</h3>
       <div class=”price”>$0</div>
       <ul class=”checked”>
@@ -58,40 +75,36 @@
         <li>No search priority</li>
       </ul>
     </div>
- 
     <div class=”plan”>
       <h3>Standard</h3>
-      <div class=”price”>$19<span> / mo</span></div>
+      <div class=”price”>$19<span>–$29 / mo</span></div>
       <ul class=”checked”>
         <li>Higher placement</li>
         <li>Logo displayed</li>
         <li>Website link</li>
       </ul>
     </div>
- 
     <div class=”plan featured”>
       <div class=”badge”>Most Popular</div>
       <h3>Featured</h3>
-      <div class=”price”>$49<span> / mo</span></div>
+      <div class=”price”>$49<span>–$79 / mo</span></div>
       <ul class=”checked”>
         <li>Top of results</li>
         <li>”Featured” badge</li>
         <li>Social proof callout</li>
       </ul>
     </div>
-
-     <div class=”plan”>
+    <div class=”plan”>
       <h3>Premium</h3>
-      <div class=”price”>$99<span> / mo</span></div>
+      <div class=”price”>$99<span>–$149 / mo</span></div>
       <ul class=”checked”>
         <li>Category exclusivity per city</li>
         <li>Lead capture form</li>
         <li>Analytics dashboard</li>
       </ul>
-     </div>
+    </div>
   </section>
-
-  <section class="form-section" id="formSection">
+  <div class="form-card" id="formSection">
 
 
   <!-- prefilled link for a form  https://docs.google.com/forms/d/e/1FAIpQLSdFf0H8SRxryPKomcHwuJsRQxw0Dwd5Aa197uvqpClUuL2yyA/viewform?usp=pp_url
@@ -164,11 +177,8 @@
 </div> <!-- closes wrapper div -->
 
 
-<footer>
-  © 2026 Everything Real Estate •
-  <a href="index.html" target="_blank">Back to Directory</a> •
-  <a href="terms.html">Terms</a> and
-  <a href="privacy.html">Privacy Policy</a>
+<footer class="site-footer">
+  <p>&copy; 2026 Everything Real Estate Canada &nbsp;|&nbsp; <a href="/">Directory</a> &nbsp;|&nbsp; <a href="terms.html">Terms</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
 <script>
