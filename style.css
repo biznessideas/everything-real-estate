@@ -2,7 +2,7 @@
    Everything Real Estate — style.css v20
    Unified design system for all pages
    ===================================================== */
- 
+
 /* ── Tokens ── */
 :root {
   --navy:      #0f1f3d;
@@ -16,11 +16,11 @@
   --border:    #e5e7eb;
   --footer-bg: #f1f5f9;
 }
- 
+
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
- 
+
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
@@ -31,12 +31,12 @@ body {
   display: flex;
   flex-direction: column;
 }
- 
+
 a { text-decoration: none; }
- 
+
 /* ── Page layout ── */
 .page-wrapper { flex: 1 0 auto; }
- 
+
 /* ── Site Nav ── */
 .site-nav {
   background: var(--navy);
@@ -46,7 +46,7 @@ a { text-decoration: none; }
   justify-content: space-between;
   gap: 1rem;
 }
- 
+
 .nav-logo {
   display: inline-flex;
   align-items: center;
@@ -54,9 +54,9 @@ a { text-decoration: none; }
   text-decoration: none;
   flex-shrink: 0;
 }
- 
+
 .nav-logo-text { line-height: 1.2; }
- 
+
 .nav-logo-name {
   display: block;
   font-size: 13px;
@@ -64,7 +64,7 @@ a { text-decoration: none; }
   color: #fff;
   letter-spacing: 0.04em;
 }
- 
+
 .nav-logo-sub {
   display: block;
   font-size: 10px;
@@ -73,43 +73,44 @@ a { text-decoration: none; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
- 
+
 .nav-links {
   display: flex;
   align-items: center;
   gap: 1.25rem;
 }
- 
+
 .nav-links a {
   color: rgba(255,255,255,0.75);
   text-decoration: none;
   font-size: 0.875rem;
   transition: color 0.15s;
 }
- 
+
 .nav-links a:hover { color: #fff; }
- 
+
 .nav-links a.nav-cta {
   background: var(--blue);
   color: #fff;
-  padding: 0.45rem 1rem;
-  border-radius: 6px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  cursor: pointer;
   transition: background 0.15s;
 }
- 
+
 .nav-links a.nav-cta:hover { background: var(--blue-d); }
- 
+
 /* ── Index hero (tagline banner) ── */
 .index-hero {
   background: var(--navy);
   padding: 1.5rem 1.5rem 3.5rem;
   text-align: center;
   color: rgba(255,255,255,0.8);
-  font-size: 0.95rem;
+  font-size: 1.45rem;
 }
- 
+
 /* ── Page header (interior pages) ── */
 .page-header {
   background: var(--navy);
@@ -117,21 +118,21 @@ a { text-decoration: none; }
   padding: 2.5rem 1.5rem;
   text-align: center;
 }
- 
+
 .page-header h1 {
   font-size: 2rem;
   margin: 0 0 0.4rem;
   font-weight: 700;
 }
- 
+
 .page-header p {
   font-size: 1rem;
   opacity: 0.8;
   margin: 0;
 }
- 
+
 /* ── Containers ── */
- 
+
 /* Main index card (overlaps hero) */
 .container-card {
   max-width: 1100px;
@@ -141,21 +142,21 @@ a { text-decoration: none; }
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
- 
+
 /* Narrow (advertise / submit) */
 .container-narrow {
   max-width: 760px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
- 
+
 /* Prose (privacy / terms) */
 .container-prose {
   max-width: 800px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
 }
- 
+
 /* ── Footer ── */
 .site-footer {
   flex-shrink: 0;
@@ -166,14 +167,14 @@ a { text-decoration: none; }
   font-size: 0.875rem;
   color: var(--muted);
 }
- 
+
 .site-footer a {
   color: var(--blue);
   text-decoration: none;
 }
- 
+
 .site-footer a:hover { text-decoration: underline; }
- 
+
 /* ── Filters (index) ── */
 .filters {
   display: grid;
@@ -181,32 +182,32 @@ a { text-decoration: none; }
   gap: 10px;
   margin-bottom: 1.25rem;
 }
- 
+
 .filters select {
   padding: 0.7rem 0.9rem;
   font-size: 0.9rem;
   font-family: 'Inter', sans-serif;
-  border-radius: 6px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--white);
   color: var(--text);
 }
- 
+
 .filters button {
   padding: 0.7rem 1rem;
   background: var(--blue);
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.15s;
 }
- 
+
 .filters button:hover { background: var(--blue-d); }
- 
+
 /* ── Listing cards ── */
 .results {
   display: flex;
@@ -214,7 +215,7 @@ a { text-decoration: none; }
   gap: 12px;
   margin-top: 0.75rem;
 }
- 
+
 .listing-card {
   background: var(--white);
   padding: 1.1rem 1.4rem;
@@ -224,32 +225,32 @@ a { text-decoration: none; }
   transition: box-shadow 0.2s, transform 0.2s;
   display: block;
 }
- 
+
 .listing-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
- 
+
 .listing-card a { text-decoration: none; color: inherit; }
- 
+
 .listing-card h3.name {
   margin: 0 0 3px;
   font-size: 1rem;
   color: var(--text);
 }
- 
+
 .listing-card p.meta {
   font-size: 0.875rem;
   color: var(--muted);
   margin: 0;
 }
- 
+
 .listing-card.paid {
   border: 2px solid var(--blue);
   background: #f0f6ff;
   position: relative;
 }
- 
+
 .listing-card.paid::before {
   content: 'FEATURED';
   position: absolute;
@@ -263,17 +264,15 @@ a { text-decoration: none; }
   border-radius: 999px;
   letter-spacing: 0.05em;
 }
- 
+
 /* ── Browse by City ── */
 .city-browse {
   background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
   padding: 1.75rem 1.5rem;
   text-align: center;
   margin-top: 2rem;
 }
- 
+
 .city-browse-eyebrow {
   font-size: 10px;
   letter-spacing: 0.2em;
@@ -281,20 +280,20 @@ a { text-decoration: none; }
   color: var(--muted);
   margin-bottom: 4px;
 }
- 
+
 .city-browse-title {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 3px;
 }
- 
+
 .city-browse-sub {
   font-size: 0.85rem;
   color: var(--muted);
   margin-bottom: 1rem;
 }
- 
+
 .city-divider {
   display: flex;
   align-items: center;
@@ -302,22 +301,22 @@ a { text-decoration: none; }
   gap: 10px;
   margin-bottom: 1rem;
 }
- 
+
 .city-divider-line {
   height: 1px;
   width: 40px;
   background: var(--border);
 }
- 
-.city-divider-dot { font-size: 12px; color: #C0392B; }
- 
+
+.city-divider-dot { font-size: 12px; color: var(--gold); }
+
 .city-pills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
 }
- 
+
 .city-pill {
   display: inline-flex;
   align-items: center;
@@ -329,9 +328,9 @@ a { text-decoration: none; }
   text-decoration: none;
   transition: background 0.15s, border-color 0.15s;
 }
- 
+
 .city-pill:hover { background: #eeebe4; border-color: #bbb; }
- 
+
 .city-pill-dot {
   width: 7px;
   height: 7px;
@@ -339,52 +338,52 @@ a { text-decoration: none; }
   background: var(--gold);
   flex-shrink: 0;
 }
- 
+
 .city-pill-name {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--navy);
 }
- 
+
 .city-pill-province {
   font-size: 0.72rem;
   color: var(--muted);
 }
- 
+
 .city-browse-more {
   margin-top: 1rem;
   font-size: 0.78rem;
   color: #aaa;
 }
- 
+
 .city-browse-more a { color: #888; text-decoration: underline; }
- 
+
 /* ── Pricing cards ── */
 .pricing {
   display: flex;
-  gap: 1.25rem;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2.5rem;
   padding-top: 0.5rem;
 }
- 
+
 .plan {
   position: relative;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 1.75rem 1.5rem;
+  padding: 30px 26px;
   width: 230px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   transition: transform 0.2s, box-shadow 0.2s;
 }
- 
+
 .plan:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 32px rgba(0,0,0,0.1);
 }
- 
+
 .plan h3 {
   margin: 0 0 0.4rem;
   font-size: 1.15rem;
@@ -392,7 +391,7 @@ a { text-decoration: none; }
   text-align: center;
   color: var(--navy);
 }
- 
+
 .price {
   font-size: 2rem;
   font-weight: 800;
@@ -400,19 +399,19 @@ a { text-decoration: none; }
   margin: 0.6rem 0;
   text-align: center;
 }
- 
+
 .price span {
   font-size: 0.85rem;
   font-weight: 400;
   color: var(--muted);
 }
- 
+
 .plan ul {
   list-style: none;
   padding: 0;
   margin: 1rem 0 0;
 }
- 
+
 .plan ul li {
   position: relative;
   padding-left: 1.4rem;
@@ -420,7 +419,7 @@ a { text-decoration: none; }
   font-size: 0.875rem;
   color: #4b5563;
 }
- 
+
 .plan ul li::before {
   content: "✓";
   position: absolute;
@@ -428,14 +427,14 @@ a { text-decoration: none; }
   color: var(--blue);
   font-weight: 700;
 }
- 
+
 .plan.featured {
   border: 2px solid var(--blue);
   transform: scale(1.03);
 }
- 
+
 .plan.featured:hover { transform: scale(1.03) translateY(-4px); }
- 
+
 .badge {
   position: absolute;
   top: -11px;
@@ -450,7 +449,7 @@ a { text-decoration: none; }
   letter-spacing: 0.5px;
   white-space: nowrap;
 }
- 
+
 /* ── Form card ── */
 .form-card {
   background: var(--white);
@@ -458,25 +457,25 @@ a { text-decoration: none; }
   padding: 2.25rem;
   box-shadow: 0 8px 28px rgba(0,0,0,0.07);
 }
- 
+
 .form-card h2 {
   margin: 0 0 0.4rem;
   font-size: 1.35rem;
   color: var(--navy);
 }
- 
+
 .form-card > p {
   color: var(--muted);
   font-size: 0.9rem;
   margin: 0 0 1.25rem;
 }
- 
+
 form {
   display: flex;
   flex-direction: column;
   gap: 11px;
 }
- 
+
 input, select, textarea {
   padding: 0.75rem 1rem;
   border-radius: 8px;
@@ -487,18 +486,18 @@ input, select, textarea {
   background: var(--white);
   width: 100%;
 }
- 
+
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--blue);
   box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
 }
- 
+
 textarea {
   min-height: 90px;
   resize: vertical;
 }
- 
+
 form button[type="submit"] {
   margin-top: 4px;
   padding: 0.85rem;
@@ -512,11 +511,11 @@ form button[type="submit"] {
   cursor: pointer;
   transition: background 0.15s;
 }
- 
+
 form button[type="submit"]:hover { background: var(--blue-d); }
- 
+
 #formMessage { display: none; margin-top: 1.25rem; }
- 
+
 .thank-you-box {
   padding: 1.75rem;
   background: #ecfdf5;
@@ -528,36 +527,36 @@ form button[type="submit"]:hover { background: var(--blue-d); }
   color: #15803d;
   line-height: 1.7;
 }
- 
+
 /* ── Prose (privacy / terms) ── */
 .prose { line-height: 1.8; }
- 
+
 .prose h1 {
   font-size: 1.9rem;
   color: var(--navy);
   margin: 0 0 1.25rem;
 }
- 
+
 .prose h2 {
   font-size: 1.15rem;
   color: var(--navy);
   margin: 2rem 0 0.4rem;
 }
- 
+
 .prose p {
   margin: 0 0 0.9rem;
   color: #374151;
 }
- 
+
 .prose ul {
   padding-left: 1.4rem;
   margin: 0 0 0.9rem;
 }
- 
+
 .prose ul li { margin-bottom: 0.3rem; }
- 
+
 .prose strong { color: var(--text); }
- 
+
 .prose .meta {
   font-size: 0.82rem;
   color: var(--muted);
@@ -565,7 +564,7 @@ form button[type="submit"]:hover { background: var(--blue-d); }
   padding-top: 1rem;
   border-top: 1px solid var(--border);
 }
- 
+
 /* ── Submit page extras ── */
 .radio-group {
   padding: 0.25rem 0;
@@ -573,7 +572,7 @@ form button[type="submit"]:hover { background: var(--blue-d); }
   flex-direction: column;
   gap: 7px;
 }
- 
+
 .radio-group label {
   display: flex;
   align-items: center;
@@ -582,13 +581,13 @@ form button[type="submit"]:hover { background: var(--blue-d); }
   color: var(--text);
   cursor: pointer;
 }
- 
+
 .radio-group input[type="radio"] {
   width: auto;
   margin: 0;
   accent-color: var(--blue);
 }
- 
+
 .form-note {
   font-size: 0.82rem;
   color: var(--muted);
@@ -596,14 +595,14 @@ form button[type="submit"]:hover { background: var(--blue-d); }
   align-items: flex-start;
   gap: 7px;
 }
- 
+
 .form-note input[type="checkbox"] {
   width: auto;
   margin: 2px 0 0;
   flex-shrink: 0;
   accent-color: var(--blue);
 }
- 
+
 /* ── Responsive ── */
 @media (max-width: 640px) {
   .site-nav { padding: 0.7rem 1rem; }

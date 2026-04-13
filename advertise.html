@@ -62,40 +62,33 @@
   <p>Reach buyers, renters, and investors actively searching for real estate services across Canada.</p>
 </div>
 
- <div class=”plan”>
+<div class="container-narrow">
+  <section class="pricing">
+   <div class="plan">
       <h3>Free</h3>
-      <div class=”price”>$0</div>
-      <ul class=”checked”>
+      <div class="price">$0</div>
+      <ul class="checked">
         <li>Basic directory listing</li>
         <li>No search priority</li>
       </ul>
     </div>
-    <div class=”plan”>
+    <div class="plan">
       <h3>Standard</h3>
-      <div class=”price”>$19<span>–$29 / mo</span></div>
-      <ul class=”checked”>
+      <div class="price">$19<span> / month</span></div>
+      <ul class="checked">
         <li>Higher placement</li>
         <li>Logo displayed</li>
         <li>Website link</li>
       </ul>
     </div>
-    <div class=”plan featured”>
-      <div class=”badge”>Most Popular</div>
+    <div class="plan featured">
+      <div class="badge">MOST POPULAR</div>
       <h3>Featured</h3>
-      <div class=”price”>$49<span>–$79 / mo</span></div>
-      <ul class=”checked”>
+      <div class="price">$49<span> / month</span></div>
+      <ul class="checked">
         <li>Top of results</li>
-        <li>”Featured” badge</li>
+        <li>"Featured" badge</li>
         <li>Social proof callout</li>
-      </ul>
-    </div>
-    <div class=”plan”>
-      <h3>Premium</h3>
-      <div class=”price”>$99<span>–$149 / mo</span></div>
-      <ul class=”checked”>
-        <li>Category exclusivity per city</li>
-        <li>Lead capture form</li>
-        <li>Analytics dashboard</li>
       </ul>
     </div>
   </section>
@@ -155,7 +148,6 @@
        <option value="Free">Free – $0</option>
         <option value="Standard">Standard – $19/month</option>
         <option value="Featured">Featured – $49/month</option>
-        <option value="Premium">Premium – $99/month</option>
       </select>
 
       <textarea name="entry.1989129436" placeholder="Additional Notes"></textarea>
@@ -173,19 +165,37 @@
 
 
 <footer class="site-footer">
-  <p>&copy; 2026 Everything Real Estate Canada &nbsp;|&nbsp; <a href="/">Directory</a> &nbsp;|&nbsp; <a href="terms.html">Terms</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+  <p>&copy; 2026 Everything Real Estate Canada &nbsp;|&nbsp;
+    <a href="/">Directory</a> &nbsp;|&nbsp;
+    <a href="terms.html">Terms</a> &nbsp;|&nbsp;
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
 </footer>
 
 <script>
-function handleSubmit(e) {
-  const iframe = document.querySelector('iframe[name="hidden_iframe"]');
-  const form = document.getElementById('advertiseForm');
-  const message = document.getElementById('formMessage');
+//function handleSubmit(e) {
+  //const iframe = document.querySelector('iframe[name="hidden_iframe"]');
+  //const form = document.getElementById('advertiseForm');
+  //const message = document.getElementById('formMessage');
 
   // Show thank-you once Google Forms has actually received the POST
-  iframe.addEventListener('load', function onLoad() {
-    iframe.removeEventListener('load', onLoad);
-    form.style.display = 'none';
+  //iframe.addEventListener('load', function onLoad() {
+    //iframe.removeEventListener('load', onLoad);
+     //form.style.display = 'none';
+
+     function handleSubmit() {
+       const form = document.getElementById('advertiseForm');
+       const formSection = document.getElementById('formSection');
+       const message = document.getElementById('formMessage');
+
+       // Clear form fields after submission
+       setTimeout(() => {
+         form.reset();
+
+         // Hide the form smoothly
+         form.style.display = 'none';
+
+     ////
     message.innerHTML = `
       <div class="thank-you-box">
         Thank you!<br><br>
