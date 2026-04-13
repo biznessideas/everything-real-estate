@@ -62,11 +62,6 @@
   <p>Reach buyers, renters, and investors actively searching for real estate services across Canada.</p>
 </div>
 
-
-
-
-
-  
  <div class=”plan”>
       <h3>Free</h3>
       <div class=”price”>$0</div>
@@ -182,32 +177,30 @@
 </footer>
 
 <script>
-function handleSubmit() {
+function handleSubmit(e) {
+  const iframe = document.querySelector('iframe[name="hidden_iframe"]');
   const form = document.getElementById('advertiseForm');
-  const formSection = document.getElementById('formSection');
   const message = document.getElementById('formMessage');
 
-  // Clear form fields after submission
-  setTimeout(() => {
-    form.reset();
-
-    // Hide the form smoothly
+  // Show thank-you once Google Forms has actually received the POST
+  iframe.addEventListener('load', function onLoad() {
+    iframe.removeEventListener('load', onLoad);
     form.style.display = 'none';
-
-    // Show thank-you message
     message.innerHTML = `
       <div class="thank-you-box">
         Thank you!<br><br>
-        Your application has been received and is currently under review.
-        <br><br>
-        If approved, you will receive an email with confirmation and payment instructions.
+        Your application has been received and is under review.
+        We'll email you with next steps if approved.
       </div>
     `;
-
     message.style.display = 'block';
-  }, 500);
+  });
+
+  // Allow the form to submit normally to the hidden iframe
+  return true;
 }
 </script>
+
 
 
 </body>
