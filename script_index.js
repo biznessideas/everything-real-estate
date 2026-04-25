@@ -110,11 +110,6 @@ function applyFilters() {
   const province = document.getElementById('filterProvince').value;
   const city = document.getElementById('filterCity').value;
 
-  if (!province) {
-    alert('Please select a province or territory.');
-    return;
-  }
-
   const filtered = allListings.filter(item => {
     const types = (item.service_type || '')
       .toLowerCase()
@@ -123,7 +118,7 @@ function applyFilters() {
 
     return (
       (!type || types.includes(type)) &&
-      item.province === province &&
+      (!province || item.province === province) &&
       (!city || item.city === city)
     );
   });
