@@ -24,7 +24,7 @@ const PROVINCE_NAMES = {
 // Google Sheets API (approved listings)
 // ----------------------------------
 const API_URL =
-  'https://script.google.com/macros/s/AKfycbwuhO_zvZCYTY8sI4cNs26rszuNsy8C2VgqGc1a4D_z4nkdHdWXQV_YMSCps6pLo2jy/exec';
+  'https://script.google.com/macros/s/AKfycbyF-2Gt-b195uuHdrfAKVtCrqcI-nrQM96It5h1dzu43L3kXajXTlkCUnnOOswdp2Rn/exec';
 
 let allListings = [];
 
