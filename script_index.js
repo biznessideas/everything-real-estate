@@ -37,11 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       allListings = data;
       populateProvinces();
-      applyUrlFilters();
-    })
-    .catch(err => {
-      console.error('API error:', err);
-    });
+    applyUrlFilters();
+    document.getElementById('filterProvince').disabled = false;
+  })
+  .catch(err => {
+    console.error('API error:', err);
+    document.getElementById('filterProvince').disabled = false;
+    document.getElementById('filterProvince').innerHTML =
+      '<option value="">Province / Territory</option>';
+  });
 
   document
     .getElementById('filterProvince')
