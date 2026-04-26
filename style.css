@@ -640,9 +640,13 @@ nav {
 
 .plans {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 760px) {
+  .plans { grid-template-columns: 1fr; }
 }
 
 .plan {
