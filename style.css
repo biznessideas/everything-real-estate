@@ -158,7 +158,7 @@ nav {
   padding: 4.5rem 1.5rem 3.5rem;
   text-align: center;
   position: relative;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .hero::before {
@@ -314,7 +314,7 @@ nav {
 
 .container-card {
   max-width: 1100px;
-  margin: 2rem auto 2rem;
+  margin: -2rem auto 2rem;
   background: var(--white);
   padding: 1.75rem;
   border-radius: 12px;
@@ -640,13 +640,9 @@ nav {
 
 .plans {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin-bottom: 1rem;
-}
-
-@media (max-width: 760px) {
-  .plans { grid-template-columns: 1fr; }
 }
 
 .plan {
