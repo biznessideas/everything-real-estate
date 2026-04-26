@@ -42,7 +42,6 @@
       window.location.replace(window.location.origin + '/');
     }
   </script>
-
 </head>
 
   
@@ -64,34 +63,33 @@
     <a href="/advertise.html" class="nav-cta">List Your Business</a>
   </div>
 </nav>
-<div class="index-hero">
-  <p>Find trusted real estate professionals, builders, rentals &amp; commercial services across Canada.</p>
+
+<div class="hero">
+  <p class="hero-eyebrow">Canada's Real Estate Directory</p>
+  <h1>Find Trusted Real Estate Professionals</h1>
+  <p>Browse brokers, builders, rentals & commercial services across every province and territory.</p>
 </div>
   
 <div class="container-card">
   <div class="filters">
-    <select id="filterType">
-      <option value="">Service Type</option>
-      <option value="rental">Rentals</option>
-      <option value="buy-sell">Buy & Sell</option>
-      <option value="builder">Home Builder</option>
-      <option value="commercial">Commercial Real Estate</option>
-      <option value="broker">Real Estate Broker</option>
-      <option value="prefab">Prefabricated Homes</option>
-    </select>
+      <select id="filterType">
+        <option value="">Service Type</option>
+        <option value="rental">Rentals</option>
+        <option value="buy-sell">Buy & Sell</option>
+        <option value="builder">Home Builder</option>
+        <option value="commercial">Commercial Real Estate</option>
+        <option value="broker">Real Estate Broker</option>
+        <option value="prefab">Prefabricated Homes</option>
+      </select>
 
-    <select id="filterProvince">
-      <option value="">Loading...</option>
-    </select>
+      <select id="filterProvince">
+        <option value="">Loading...</option>
+      </select>
 
-    <select id="filterCity">
-      <option value="">City</option>
-    </select>
-
-
+      <select id="filterCity">
+        <option value="">City</option>
+      </select>
     <button onclick="applyFilters()">Search</button>
-
-
   </div>
 
   <div id="results" class="results"></div>
@@ -135,10 +133,10 @@
 </div> <!-- closes container-card -->
 </div> <!-- closes page-wrapper -->
 <footer class="site-footer">
-  <p>&copy; 2026 Everything Real Estate Canada &nbsp;|&nbsp; <a href="terms.html">Terms</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
-  
-  <p id="formMessage" style="margin-top:10px;"></p>
-
+  <p>© 2026 Everything Real Estate Canada &nbsp;|&nbsp;
+    <a href="terms.html">Terms</a> &nbsp;|&nbsp;
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
 </footer>
 
 <script src="script_index.js"></script>
